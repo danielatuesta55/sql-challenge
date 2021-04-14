@@ -25,15 +25,15 @@ CREATE TABLE "Employees" (
 );
 
 CREATE TABLE "Deparments" (
-    "dept_no" VARCHART(30)   NULL,
-    "dept_name" VARCHART(100)   NULL,
+    "dept_no" VARCHAR(30)   NULL,
+    "dept_name" VARCHAR(100)   NULL,
     CONSTRAINT "pk_Deparments" PRIMARY KEY (
         "dept_no"
      )
 );
 
 CREATE TABLE "Department_Manager" (
-    "dept_no" VARCHART(30)   NULL,
+    "dept_no" VARCHAR(30)   NULL,
     "emp_no" INT   NOT NULL,
     CONSTRAINT "pk_Department_Manager" PRIMARY KEY (
         "dept_no"

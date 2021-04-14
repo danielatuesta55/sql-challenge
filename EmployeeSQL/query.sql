@@ -9,9 +9,23 @@ JOIN public."Salaries"
 
 --PART 2: List first name, last name, and hire date for employees who were hired in 1986.
 --CREATE VIEW Data_analysis_p2 AS
+SELECT public."Employees".first_name, public."Employees".last_name, public."Employees".hire_date
+FROM public."Employees"
+WHERE public."Employees".hire_date >= '1-1-1986' AND public."Employees".hire_date <= '12-31-1986'
 
---PART 3: 3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
+
+
+--PART 3: List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
+SELECT * 
+FROM public."Department_Manager";
+
 --CREATE VIEW Data_analysis_p3 AS
+SELECT public."Departments".dept_no, public."Departments".dept_name, public."Department_Manager".emp_no, public."Employees".last_name, public."Employees".first_name 
+FROM public."Departments"
+JOIN public."Department_Manager"
+	ON public."Departments".dept_no = public."Department_Manager".dept_no
+JOIN public."Employees"
+	ON public."Department_Manager".emp_no = public."Employees".emp_no;
 
 --PART 4: List the department of each employee with the following information: employee number, last name, first name, and department name.
 --CREATE VIEW Data_analysis_p4 AS

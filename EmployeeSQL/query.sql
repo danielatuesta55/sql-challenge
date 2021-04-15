@@ -29,6 +29,13 @@ JOIN public."Employees"
 
 --PART 4: List the department of each employee with the following information: employee number, last name, first name, and department name.
 --CREATE VIEW Data_analysis_p4 AS
+SELECT public."Employees".emp_no, public."Employees".last_name, public."Employees".first_name, public."Departments".dept_name
+FROM public."Employees"
+JOIN public."Department_Manager"
+	ON public."Employees".emp_no = public."Department_Manager".emp_no
+JOIN public."Departments"
+	ON public."Department_Manager".dept_no = public."Departments".dept_no;
+	--This code did not work as it only showed 24 employees 
 
 --PART 5: List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
 --CREATE VIEW Data_analysis_p5 AS

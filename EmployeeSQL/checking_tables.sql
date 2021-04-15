@@ -10,6 +10,9 @@ FROM public."Employees";
 SELECT * 
 FROM public."Departments";
 
+SELECT *
+FROM public."Department_employee";
+
 -- Checking table Department_Manager
 SELECT * 
 FROM public."Department_Manager";

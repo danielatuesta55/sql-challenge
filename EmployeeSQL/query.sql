@@ -27,25 +27,60 @@ JOIN public."Department_Manager"
 JOIN public."Employees"
 	ON public."Department_Manager".emp_no = public."Employees".emp_no;
 
+
 --PART 4: List the department of each employee with the following information: employee number, last name, first name, and department name.
 --CREATE VIEW Data_analysis_p4 AS
 SELECT public."Employees".emp_no, public."Employees".last_name, public."Employees".first_name, public."Departments".dept_name
-FROM public."Employees"
-JOIN public."Department_Manager"
-	ON public."Employees".emp_no = public."Department_Manager".emp_no
+FROM public."Department_Employee"
 JOIN public."Departments"
-	ON public."Department_Manager".dept_no = public."Departments".dept_no;
-	--This code did not work as it only showed 24 employees 
+	ON public."Department_Employee".dept_no = public."Departments".dept_no
+JOIN public."Employees"
+	ON public."Department_Employee".emp_no = public."Employees".emp_no;
+
 
 --PART 5: List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
 --CREATE VIEW Data_analysis_p5 AS
+SELECT public."Employees".first_name, public."Employees".last_name, public."Employees".sex
+FROM public."Employees"
+WHERE public."Employees".first_name = 'Hercules' AND public."Employees".last_name LIKE 'B%';
 
 --PART 6: List all employees in the Sales department, including their employee number, last name, first name, and department name.
 --CREATE VIEW Data_analysis_p6 AS
+SELECT public."Employees".last_name, public."Employees".first_name, public."Departments".dept_name
+FROM public."Employees"
+JOIN public."Department_Employee"
+	ON public."Employees".emp_no = public."Department_Employee".emp_no
+JOIN public."Departments"
+	ON public."Department_Employee".dept_no = public."Departments".dept_no
+WHERE public."Department_Employee".dept_no IN
+(
+	SELECT dept_no
+	FROM public."Departments"
+	WHERE dept_name = 'Sales'
+);
 
 --PART 7: List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
 --CREATE VIEW Data_analysis_p7 AS
+SELECT public."Employees".emp_no,public."Employees".last_name,public."Employees".first_name,public."Departments".dept_name
+FROM public."Employees"
+JOIN public."Department_Employee"
+	ON public."Employees".emp_no = public."Department_Employee".emp_no
+JOIN public."Departments"
+	ON public."Department_Employee".dept_no = public."Departments".dept_no
+WHERE public."Department_Employee".dept_no IN
+	(
+		SELECT dept_no
+		FROM public."Departments"
+		WHERE dept_name = 'Sales'
+		OR dept_name = 'Development'
+	
+	);
+
 
 --PART 8: In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
 --CREATE VIEW Data_analysis_p8 AS
-
+SELECT public."Employees".last_name, COUNT(last_name)
+FROM public."Employees"
+GROUP BY last_name
+ORDER BY
+	COUNT (last_name) DESC;

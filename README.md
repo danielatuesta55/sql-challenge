@@ -12,7 +12,6 @@ Student: Jorge Daniel Atuesta
 
 April, 2021
 
-
 ### Inside of this repository
 
 In this repository, the reader will encounter my solution to the homework assignment SQL-Chalange. The repository is organized in folders and a README.md (The file you are currently reading). Here is the list of the folders and their contents so you can navigate through them.
@@ -29,6 +28,8 @@ Folder 2. **Employee SQL**: Inside this folder, you will have the chance to acce
 * table schemata.sql: This is a SQL file holding the code to create the tables of the data base.
 
 3. **README.md**: it's the current file you are reading. I strongly suggest navigating through it and look at the project's objective solution and analysis.
+4. **BONUS.ipynb**: This is the Jupyter Lab file that I used to create my solution for the bonus question of the assignment.
+5. **bonus.csv**: I created this CSV from the query that I made in PgAdmin using SQL. This CSV contains all the information needed to do the bonus portion.
 
 I hope you find my work not only to be complete but to display all the knowledge learned throughout this portion of the Data Science Bootcamp at Northwestern University.
 
@@ -39,11 +40,14 @@ I hope you find my work not only to be complete but to display all the knowledge
 With the data given I was supposed to takel the following three challanges:
 
 1. *Data Modeling*
+
    1. Create an ERD
 2. *Data Engineering*
+
    1. Create a table schema for each of the files (6 files in total)
    2. Import the CSV into the tables
 3. *Data Analysis*
+
    1. List the following details of each employee: employee number, last name, first name, sex, and salary.
    2. List first name, last name, and hire date for employees who were hired in 1986.
    3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
@@ -52,10 +56,12 @@ With the data given I was supposed to takel the following three challanges:
    6. List all employees in the Sales department, including their employee number, last name, first name, and department name.
    7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
    8. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
+   9. Create a histogram to visualize the most common salary ranges for employees.
+   10. Create a bar chart of average salary by title.
 
 ### Project outcomes
 
-#### Data Modeling 
+#### Data Modeling
 
 Here is an image of the final ERD created for the project.
 
@@ -163,13 +169,23 @@ PART 8: In descending order, list the frequency count of employee last names, i.
 
 ![p8](Images/p8.png)
 
+PART 9 Create a histogram to visualize the most common salary ranges for employees.
+
+![HIS](Images/Salary.png)
+
+![histt](Images/hist.png)
+
+
+PART 10 Create a bar chart of average salary by title.
+
+![p10](Images/Avg-title.png)
+
 
 ## References
 
 Littel, T. (2021, April 15). Tutoring session March 24th 2021. (J. D. Atuesta, Interviewer)
 
 ## Assignment instructions provided by Northwestern Data Science Bootcamp
-
 
 ### SQL Homework - Employee Database: A Mystery in Two Parts
 
